@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/liyucheng09/cltk/blob/main/imgs/cltk.png" alt="Logo of Selective Context" width="auto" height="150" />
+    <img src="https://github.com/liyucheng09/cltk/blob/master/imgs/cltk.png" alt="Logo of Selective Context" width="auto" height="150" />
 </p>
 
 # CLTK (Creative Linguage Toolkit)
