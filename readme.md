@@ -9,7 +9,9 @@
 [![Build Status](https://travis-ci.org/your-username/your-project.svg?branch=master)](https://travis-ci.org/your-username/your-project)
 [![Documentation](https://img.shields.io/badge/Documentation-Latest-brightgreen.svg)](https://your-project-documentation-url.com) -->
 
-Welcome to CLTK (Creative Linguage Toolkit), an open source project that provides a one-stop toolkit for creative language processing. CLTK offers a comprehensive API for accessing creative language datasets and includes pre-trained models for creative language detection, interpretation, and generation. This projects includes metaphors, sarcasm, irony, simile, idiom and more types of creative language.
+Welcome to CLTK (Creative Linguage Toolkit), an open source project that provides a one-stop toolkit for creative language processing. 
+
+CLTK offers a comprehensive API for accessing creative language datasets and includes pre-trained models for creative language detection, interpretation, and generation. This projects includes metaphors, sarcasm, irony, simile, idiom and more types of creative language.
 
 ## Contributing
 
