@@ -2,23 +2,24 @@
 
 from typing import Any, Dict, List, Tuple
 from huggingface_hub import HfApi
-from datasets import Dataset, DatasetBuilder, DatasetInfo, Split, SplitGenerator, utils
+from datasets import Dataset, DatasetBuilder, DatasetInfo, Split, SplitGenerator, utils, DownloadManager, GeneratorBasedBuilder
 import datasets
+import csv
 
 DATA_FILES = {
     "ar": {
-        "train": "data/iSarcasmEval-main/train/train.Ar.csv",
+        "train": "/Users/liyucheng/projects/cltk/data/iSarcasmEval-main/train/train.Ar.csv",
         "test": {
-            'A': ["data/iSarcasmEval-main/test/task_A_Ar_test.csv",],
-            'C': ["data/iSarcasmEval-main/test/task_C_Ar_test.csv",],
+            'A': ["/Users/liyucheng/projects/cltk/data/iSarcasmEval-main/test/task_A_Ar_test.csv",],
+            'C': ["/Users/liyucheng/projects/cltk/data/iSarcasmEval-main/test/task_C_Ar_test.csv",],
         },
     },
     "en": {
-        "train": "data/iSarcasmEval-main/train/train.En.csv",
+        "train": "/Users/liyucheng/projects/cltk/data/iSarcasmEval-main/train/train.En.csv",
         "test": {
-            'A': ["data/iSarcasmEval-main/test/task_A_En_test.csv",],
-            'B': ["data/iSarcasmEval-main/test/task_B_En_test.csv",],
-            'C': ["data/iSarcasmEval-main/test/task_C_En_test.csv",],
+            'A': ["/Users/liyucheng/projects/cltk/data/iSarcasmEval-main/test/task_A_En_test.csv",],
+            'B': ["/Users/liyucheng/projects/cltk/data/iSarcasmEval-main/test/task_B_En_test.csv",],
+            'C': ["/Users/liyucheng/projects/cltk/data/iSarcasmEval-main/test/task_C_En_test.csv",],
         },
     },
 }
@@ -33,12 +34,12 @@ DATA_FILES = {
 #  'overstatement',
 #  'rhetorical_question']
 
-class iSarcasm(DatasetBuilder):
+class iSarcasm(GeneratorBasedBuilder):
     VERSION = utils.Version("1.0.0")
-    BUILDER_CONFIG_CLASS = YourDatasetConfig  # This will be a class you define for your configurations.
+    BUILDER_CONFIG_CLASS = datasets.BuilderConfig  # This will be a class you define for your configurations.
     BUILDER_CONFIGS = [
-        YourDatasetConfig(name="en", description="The english version of iSarcasm dataset"),
-        YourDatasetConfig(name="ar", description="The arabic version of iSarcasm dataset"),
+        BUILDER_CONFIG_CLASS(name="en", description="The english version of iSarcasm dataset"),
+        BUILDER_CONFIG_CLASS(name="ar", description="The arabic version of iSarcasm dataset"),
     ]
     
     def _info(self) -> DatasetInfo:
@@ -46,7 +47,7 @@ class iSarcasm(DatasetBuilder):
             features = {"tweet": datasets.Value("string"), "sarcastic": datasets.Value("bool"), "rephrase": datasets.Value("string"), "sarcasm": datasets.Value("bool"), "irony": datasets.Value("bool"), "satire": datasets.Value("bool"), "understatement": datasets.Value("bool"), "overstatement": datasets.Value("bool"), "rhetorical_question": datasets.Value("bool"), "task": datasets.Value("string")}
         elif self.config.name == "ar":
             features = {"tweet": datasets.Value("string"), "sarcastic": datasets.Value("bool"), "dialect": datasets.Value("string"), "rephrase": datasets.Value("string"), "sarcasm": datasets.Value("bool"), "irony": datasets.Value("bool"), "satire": datasets.Value("bool"), "understatement": datasets.Value("bool"), "overstatement": datasets.Value("bool"), "rhetorical_question": datasets.Value("bool"), "task": datasets.Value("string")}
-        return DatasetInfo(features=features)
+        return DatasetInfo(features=datasets.Features(features))
         
     def _split_generators(self, dl_manager: DownloadManager) -> List[SplitGenerator]:
         if self.config.name == "en":
@@ -91,13 +92,16 @@ class iSarcasm(DatasetBuilder):
                                 yield id_, {"tweet": text_0.strip(), "sarcastic": bool(sarcastic_id.strip()), "rephrase": text_1.strip(), "sarcasm": '-', "irony": '-', "satire": '-', "understatement": '-', "overstatement": '-', "rhetorical_question": '-', "task": task}
 
         elif isinstance(filepath, str):
-            with open(path, encoding="utf-8") as f:
-                for id_, row in enumerate(f):
-                    if id_ == 0:
+            with open(filepath, encoding="utf-8") as f:
+                for id__, row in enumerate(f):
+                    if id__ == 0:
                         continue
                     if self.config.name == 'ar':
-                        id_,text,sarcastic,rephrase,dialect = row.split(",")
+                        id_,text,sarcastic,rephrase,dialect = list(csv.reader([row]))[0]
                         yield id_, {"tweet": text.strip(), "sarcastic": bool(sarcastic.strip()), "dialect": dialect.strip(), "rephrase": rephrase.strip(), "sarcasm": '-', "irony": '-', "satire": '-', "understatement": '-', "overstatement": '-', "rhetorical_question": '-', "task": '-'}
                     elif self.config.name == 'en':
-                        id_,tweet,sarcastic,rephrase,sarcasm,irony,satire,understatement,overstatement,rhetorical_question = row.split(",")
+                        try:
+                            id_,tweet,sarcastic,rephrase,sarcasm,irony,satire,understatement,overstatement,rhetorical_question, = list(csv.reader([row]))[0]
+                        except:
+                            print('\n---', list(csv.reader([row])), '---')
                         yield id_, {"tweet": tweet.strip(), "sarcastic": bool(sarcastic.strip()), "rephrase": rephrase.strip(), "sarcasm": bool(sarcasm.strip()), "irony": bool(irony.strip()), "satire": bool(satire.strip()), "understatement": bool(understatement.strip()), "overstatement": bool(overstatement.strip()), "rhetorical_question": bool(rhetorical_question.strip()), "task": '-'}
