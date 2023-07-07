@@ -13,25 +13,31 @@ Welcome to CLTK (Creative Linguage Toolkit), an open source project that provide
 
 CLTK offers a comprehensive API for accessing creative language datasets and includes pre-trained models for creative language detection, interpretation, and generation. This projects includes metaphors, sarcasm, irony, simile, idiom and more types of creative language.
 
+## Datasets
+
+We collect all available data resources for creative language processing and format them as Huggingface Datasets, so that you can access and use them directly.
+
+Now CLTK has collected the following datasets:
+
+**Metaphor:**
+- VUA20 (FigLang@ACL 2020)
+- TroFi (EACL 2006)
+- MOH (SEM 2016)
+- Chinese_Metaphor_Corpus (CMC, COLING 2022)
+- UKP_Novel_Metaphor (EMNLP 2018)
+
+**Humor:**
+- ColBERT
+
+**Simile:**
+- Scope (EMNLP 2020)
+- WPS_Chinese_Simile (AAAI 2020)
+
+Open an issue if you hope any dataset to be included in CLTK.
+
 ## Contributing
 
 We welcome contributions from the community! Join our discord server or open an issue to join the discussion.
-
-## TODO
-
-### Dataset
-
-- [ ] sarcasm
-  - [ ] iSarcasm
-  - [ ] 2015Sarcasm
-- [ ] irony
-- [ ] metaphor
-  - [ ] VUA 18/20
-  - [ ] Figlang
-- [ ] simile
-- [ ] idiom
-- [ ] humor
-  
 
 ## License
 
