@@ -15,23 +15,23 @@ CLTK offers a comprehensive API for accessing creative language datasets and inc
 
 ## Datasets
 
-We collect all available data resources for creative language processing and format them as Huggingface Datasets, so that you can access and use them directly.
+We collect available data resources for creative language processing and format them as Huggingface Datasets, so that you can access and use them directly via Huggingface Hub.
 
 Now CLTK has collected the following datasets:
 
 **Metaphor:**
-- VUA20 (FigLang@ACL 2020)
-- TroFi (EACL 2006)
-- MOH (SEM 2016)
-- Chinese_Metaphor_Corpus (CMC, COLING 2022)
-- UKP_Novel_Metaphor (EMNLP 2018)
+- [VUA20 (FigLang@ACL 2020)](https://huggingface.co/datasets/CreativeLang/vua20_metaphor)
+- [TroFi (EACL 2006)](https://huggingface.co/datasets/CreativeLang/trofi_metaphor)
+- [MOH (SEM 2016)](https://huggingface.co/datasets/CreativeLang/moh_metaphor)
+- [Chinese_Metaphor_Corpus (CMC, COLING 2022)](https://huggingface.co/datasets/CreativeLang/chinese_metaphor_corpus)
+- [UKP_Novel_Metaphor (EMNLP 2018)](https://huggingface.co/datasets/CreativeLang/ukp_novel_metaphor)
 
 **Humor:**
-- ColBERT
+- [ColBERT_Humor](https://huggingface.co/datasets/CreativeLang/ColBERT_Humor_Detection)
 
 **Simile:**
-- Scope (EMNLP 2020)
-- WPS_Chinese_Simile (AAAI 2020)
+- [Scope_Simile (EMNLP 2020)](https://huggingface.co/datasets/CreativeLang/scope_simile_generation)
+- [WPS_Chinese_Simile (AAAI 2020)](https://huggingface.co/datasets/CreativeLang/wps_chinese_simile)
 
 Open an issue if you hope any dataset to be included in CLTK.
 
