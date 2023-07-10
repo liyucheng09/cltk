@@ -2,7 +2,7 @@
     <img src="https://github.com/liyucheng09/cltk/blob/master/imgs/cltk.png" alt="Logo of Selective Context" width="auto" height="150" />
 </p>
 
-# CLTK (Creative Linguage Toolkit)
+# CLTK - Creative Linguage Toolkit
 
 <!-- [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/Python-3.7%2B-blue)](https://www.python.org/downloads/release/python-370/)
