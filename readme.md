@@ -39,17 +39,17 @@ Open an issue if you hope any dataset to be included in CLTK.
 
 **Metaphor Detection:** [FrameBERT (EACL 2023)](https://huggingface.co/CreativeLang/metaphor_detection_roberta_seq).
 
-# Contributing
+## Contributing
 
-We welcome contributions from the community! Join our discord server or open an issue to join the discussion.
+We welcome contributions from the community! Join our discord server (to be created soon...) or open an issue to join the discussion.
 
-# License
+## License
 
 CLTK is open source and is released under the [MIT License](https://opensource.org/licenses/MIT).
 
 <!-- ## Acknowledgements -->
 
 
-# Contact
+## Contact
 
 If you have any questions, open an issue or [email](mailto:yucheng.li[at]surrey.ac.uk) me directly.
