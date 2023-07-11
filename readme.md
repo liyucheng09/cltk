@@ -33,6 +33,9 @@ Now CLTK has collected the following datasets:
 - [Scope_Simile (EMNLP 2020)](https://huggingface.co/datasets/CreativeLang/scope_simile_generation)
 - [WPS_Chinese_Simile (AAAI 2020)](https://huggingface.co/datasets/CreativeLang/wps_chinese_simile)
 
+**Irony:**
+- [EPIC (ACL 2023)](https://huggingface.co/datasets/CreativeLang/EPIC_Irony)
+
 Open an issue if you hope any dataset to be included in CLTK.
 
 ## Models
