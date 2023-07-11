@@ -36,6 +36,9 @@ Now CLTK has collected the following datasets:
 **Irony:**
 - [EPIC (ACL 2023)](https://huggingface.co/datasets/CreativeLang/EPIC_Irony)
 
+**Sarcasm:**
+- [SARC (LREC 2018)](https://huggingface.co/datasets/CreativeLang/SARC_Sarcasm)
+
 Open an issue if you hope any dataset to be included in CLTK.
 
 ## Models
