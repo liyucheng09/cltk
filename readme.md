@@ -39,6 +39,12 @@ Now CLTK has collected the following datasets:
 **Sarcasm:**
 - [SARC (LREC 2018)](https://huggingface.co/datasets/CreativeLang/SARC_Sarcasm)
 
+**Tongue Twister**
+- [TwistList (ACL 2023)](https://huggingface.co/datasets/CreativeLang/TwistList)
+
+**Pun**
+- [Semeval2017 Task 7: Pun Detection](https://huggingface.co/datasets/CreativeLang/pun_detection_semeval2017_task7)
+
 Open an issue if you hope any dataset to be included in CLTK.
 
 ## Models
